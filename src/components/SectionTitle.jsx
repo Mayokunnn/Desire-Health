@@ -1,0 +1,14 @@
+import PropTypes from 'prop-types';
+
+SectionTitle.propTypes = {
+    side: PropTypes.string,
+    title: PropTypes.string,
+}
+export default function SectionTitle({side, title}) {
+    const position = side === 'left' ? 'title--left' : 'title--right'
+    console
+  return (
+    <h3 className={`${position} inline-block capitalize text-grey-800 text-2xl font-medium`}>{title}
+    </h3>
+  )
+}
