@@ -30,14 +30,14 @@
 }
 
 .title--left{
-    float: right;
+    float: right;    
 }
 
 .title--right::after{
     content: '';
     height: 3px; 
     width: 40%;
-    bottom: -4px;
+    bottom: -2px;
     right: 0;
     position: absolute;
     background-color: #0a75fb;
@@ -47,8 +47,14 @@
     content: '';
     height: 3px; 
     width: 40%;
-    bottom: -4px;
+    bottom: -2px;
     left: 0;
     position: absolute;
     background-color: #0a75fb;
+}
+
+.shadow-round{
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
 }

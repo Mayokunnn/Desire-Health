@@ -5,6 +5,8 @@ import SectionTitle from '../components/SectionTitle'
 import Section from '../components/Section'
 import {servicesArray} from '../utils/helpers'
 import ServicesCard from '../components/ServicesCard'
+import About from '../components/About'
+import WhyChooseUs from '../components/WhyChooseUs'
 
 
 
@@ -21,8 +23,16 @@ export default function HomePage() {
                     {servicesArray.map((serv, i) => <ServicesCard key={i} icon={serv.icon} title={serv.title} content={serv.content} /> )}
                 </div>
             </Section>
-            <Section color={'grey'}>
+            <Section color={'grey'} type='about'>
                 <SectionTitle title={'about us'} side={'left'}/>
+                <About/>
+            </Section>
+            <Section>
+                <SectionTitle title={'why choose us'} side={'right'}/>
+                <WhyChooseUs/>
+            </Section>
+            <Section color={'grey'} type={'footer'} >
+                
             </Section>
         </div>
     </Main>

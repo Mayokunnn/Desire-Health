@@ -30,3 +30,11 @@ export const servicesArray = [
         icon: "6"
     }
 ]
+
+export const whyChooseUs = [
+    'Uninterrupted access',
+   'Seamless transaction',
+    'Patient engagement',
+    'Behaviour support',
+   ' Better health outcomes',
+]

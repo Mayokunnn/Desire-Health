@@ -10,7 +10,7 @@ export default function NavList({navItems}) {
     <ul className='flex space-x-3'>
         {navItems.map((item, i)=> 
         <li key={i}>
-        <NavLink activeClassName='active' to={`${item.toLowerCase() === 'home' ? '/' : item.toLowerCase().replace(/\s/g, '')}`} className='text-white font-normal'>{item}</NavLink>
+        <NavLink to={`${item.toLowerCase() === 'home' ? '/' : item.toLowerCase().replace(/\s/g, '')}`} className='text-white font-normal'>{item}</NavLink>
         </li>) }
     </ul>
   )

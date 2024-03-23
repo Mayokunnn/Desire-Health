@@ -7,6 +7,7 @@ export default {
   theme: {
     backgroundImage: {
       "organizational-bg-desktop": "url('/assets/hero.png')",
+      "about-bg": "url(/assets/aboutus-bg.png)"
     }, 
 
     extend: {
