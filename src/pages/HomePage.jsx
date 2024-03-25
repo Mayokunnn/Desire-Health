@@ -7,6 +7,7 @@ import {servicesArray} from '../utils/helpers'
 import ServicesCard from '../components/ServicesCard'
 import About from '../components/About'
 import WhyChooseUs from '../components/WhyChooseUs'
+import Footer from '../components/Footer'
 
 
 
@@ -32,7 +33,7 @@ export default function HomePage() {
                 <WhyChooseUs/>
             </Section>
             <Section color={'grey'} type={'footer'} >
-                
+                <Footer/>
             </Section>
         </div>
     </Main>
