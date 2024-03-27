@@ -7,7 +7,8 @@ export default {
   theme: {
     backgroundImage: {
       "organizational-bg-desktop": "url('/assets/hero.png')",
-      "about-bg": "url(/assets/aboutus-bg.png)"
+      "about-bg": "url(/assets/aboutus-bg.png)",
+      "onboarding-bg": "url(/assets/onboarding-bg.png)"
     }, 
 
     extend: {
@@ -25,6 +26,7 @@ export default {
           '900': 'hsl(217, 75%, 33%)',
           '950': 'hsl(219, 66%, 21%)',
       },
+      "onboarding": '#fffdf2'
     },
       gridTemplateColumns: {
         '4/10-6/10': '40% 60%',

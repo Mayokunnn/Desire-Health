@@ -33,7 +33,7 @@ export default function ServicesCard({ title, content, icon }) {
     }
   
     return (
-      <div className='px-8 py-10 rounded-md shadow-lg space-y-4'>
+      <div className='px-8 py-8 rounded-md shadow border border-1 space-y-4'>
         <div className='grid grid-cols-[auto_1fr] items-center justify-start gap-2'>
           <img className='w-10' src={`/assets/logo-${icon}.svg`} alt={title} />
           <h3 className='font-semibold text-lg'>{title}</h3>

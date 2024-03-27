@@ -9,7 +9,7 @@ Section.propTypes = {
 
 export default function Section({children, color, type = ''}) {
   return (
-    <div className={`${color === 'grey' ? 'bg-[#f3f3f3] ' : 'bg-white h-screen px-48 py-12'} space-y-6  ${type === 'about' ? 'bg-about-bg bg-cover h-[80vh]' : ''} ${type === 'footer' ? 'h-[60vh]' : ''}`}>
+    <div className={`${color === 'grey' ? 'bg-[#f3f3f3] px-24 ' : 'bg-white px-48 py-12 h-screen'} space-y-6  ${type === 'about' ? 'bg-about-bg bg-cover py-12 h-screen' : ''} ${type === 'footer' ? 'h-[60vh] pb-6 pt-12' : ''}`}>
         {children}
     </div>
   )

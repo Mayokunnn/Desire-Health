@@ -18,6 +18,6 @@ export default function Button({type, text}) {
     }
 
   return (
-    <button className={`capitalize font-medium  ${color}`}>{text}</button>
+    <button className={`capitalize font-medium focus:outline-none  ${color}`}>{text}</button>
   )
 } 

@@ -67,3 +67,9 @@ hr
     height: 2px;
     width: 100%;
 }
+
+.scroll-icon{
+    position: absolute;
+    top: -40px;
+    right: -60px;
+}

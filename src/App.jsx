@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
 import Onboarding from "./pages/Onboarding";
-import Button from "./components/Button";
+import Login from "./components/Login";
 
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
         <Route path="/" element={<HomePage/>}></Route>
         <Route path="*" element={<PageNotFound />}></Route>
         <Route path="onboarding" element={<Onboarding/>}>
-          <Route path="signin" element={<Button/>}/>
+          <Route index element={<Navigate replace to="login" />} />
+          <Route path="login" element={<Login/>}/>
         </Route>
       </Routes>
      </BrowserRouter>
