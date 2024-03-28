@@ -24,5 +24,9 @@ export default function Form({type=''}) {
       <p className='text-center'>{`Don't have an account yet? `}<Link className=' text-azure-radiance-800 font-bold' to ='/onboarding/register' >Create account</Link> </p>
     </form>
   )}
-  if(type === 'register')
+  if(type === 'register'){
+    return (
+      <div></div>
+    )
+  }
 }
