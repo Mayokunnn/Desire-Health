@@ -14,7 +14,7 @@ import Footer from '../components/Footer'
 export default function HomePage() {
     
   return (
-    <Main styles='bg-organizational-bg-desktop bg-contain bg-no-repeat'>
+    <Main styles='bg-organizational-bg-desktop bg-contain bg-no-repeat '>
         <Navbar/>
         <div>
             <Hero/>

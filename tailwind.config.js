@@ -30,7 +30,8 @@ export default {
     },
       gridTemplateColumns: {
         '4/10-6/10': '40% 60%',
-        '7/10-3/10': '75% 25%'
+        '7/10-3/10': '75% 25%',
+        '6/10-4/10': '60% 40%',
       },
       fontFamily: {
         'open-sans': ['Open Sans', 'sans-serif'],

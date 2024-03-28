@@ -7,8 +7,8 @@ export default function Onboarding() {
   return (
     <Main styles='bg-onboarding h-screen'>
         <Navbar type={'onboarding'}/>
-        {/* <img src='/assets/onboarding-bg.png' alt='Onboarding Bg' className='absolute z-10 bottom-0 right-0 h-12'/> */}
-        <div>
+        {/* <img src='/assets/onboarding-bg.png' alt='Onboarding Bg' className='absolute z-100 bottom-0 right-0'/> */}
+        <div >
             <Outlet/>
         </div>
     </Main>
