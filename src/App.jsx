@@ -1,24 +1,62 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
-import Onboarding from "./pages/Onboarding";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Loader from "./components/Loader";
+import Client from "./components/Client";
 
+const Onboarding = lazy(() => import("./pages/Onboarding"));
+const Login = lazy(() => import("./components/Login"));
+const Register = lazy(() => import("./components/Register"));
 
 function App() {
-
-
   return (
     <div className="open-sans">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="*" element={<PageNotFound />}></Route>
-          <Route path="onboarding" element={<Onboarding />}>
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<Loader />}>
+                <HomePage />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="onboarding"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Onboarding />
+              </Suspense>
+            }
+          >
             <Route index element={<Navigate replace to="login" />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route
+              path="login"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Login />
+                </Suspense>
+              }
+            />
+            <Route
+              path="register"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Register />
+                </Suspense>
+              }
+            >
+              <Route
+                path="client"
+                element={
+                  <Suspense fallback={<Loader />}>
+                    <Client />
+                  </Suspense>
+                }
+              />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
@@ -26,4 +64,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

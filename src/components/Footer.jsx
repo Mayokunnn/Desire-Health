@@ -1,6 +1,12 @@
 import Logo from "./Logo";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional, smooth scrolling animation
+    });
+  };
   return (
     <div className="flex flex-col justify-between h-full text-sm text-[#354a56] font-medium relative">
       <div className="flex justify-between font-semibold tracking-wide">
@@ -69,6 +75,7 @@ export default function Footer() {
         src="./assets/scroll-icon.svg"
         alt="Scroll-Icon"
         className="scroll-icon w-8 cursor-pointer"
+        onClick={scrollToTop}
       />
     </div>
   );
