@@ -6,6 +6,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+@layer components {
 
 /* .active{
     font-weight: 600;
@@ -72,4 +73,35 @@ hr
     position: absolute;
     top: -40px;
     right: -60px;
+}
+
+ .form-input:focus + .label {
+     @apply text-azure-radiance-800 uppercase;
+ }
+
+
+.custom-radio {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 0.5px solid #ccc;
+    width: 100%;
+    @apply flex gap-2 items-center rounded shadow-md p-2 text-center text-gray-900 text-sm;
+  }
+  
+  .custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .custom-radio:has(input:checked){
+    border: 1.5px solid #0a75fb;
+    
+  }
+
+ 
 }
