@@ -99,7 +99,7 @@ export default function Client() {
       <p className="text-center">
         Have an account?
         <Link className="text-azure-radiance-800 font-bold" to={"/onboarding"}>
-          Login
+          Log in
         </Link>
       </p>
     </form>

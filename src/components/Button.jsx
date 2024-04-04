@@ -5,12 +5,14 @@ Button.propTypes = {
   type: PropTypes.string,
   text: PropTypes.string,
   pageType: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default function Button({
   type = "primary",
   text = "register",
   pageType = "",
+  onClick = function(){}
 }) {
   let buttonContent;
   let linkTo;
@@ -61,7 +63,7 @@ export default function Button({
   }
   if (type === "form") {
     return (
-      <button className="text-white text-xs bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize">
+      <button onClick={onClick} className="text-white text-xs bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize">
         {text}
       </button>
     );

@@ -80,7 +80,7 @@ export default function Footer() {
       <img
         src="./assets/scroll-icon.svg"
         alt="Scroll-Icon"
-        className="scroll-icon w-8 cursor-pointer"
+        className="hidden lg:block absolute -right-12 -top-6 lg:w-8 cursor-pointer"
         onClick={scrollToTop}
       />
     </div>

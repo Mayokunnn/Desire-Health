@@ -3,6 +3,7 @@ import { Routes, Route, Outlet } from "react-router-dom";
 import Form from "./Form";
 import Client from "./Client";
 import Worker from "./Worker";
+import Organisation from "./Organisation";
 
 export default function Register() {
   const [options, setOptions] = useState("");
@@ -29,6 +30,7 @@ export default function Register() {
               <Route path="/" element={<Outlet />} />
               <Route path="client" element={<Client />} />
               <Route path="worker" element={<Worker />} />
+              <Route path="organisation" element={<Organisation />} />
             </Routes>
           </div>
         )}

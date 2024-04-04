@@ -69,11 +69,7 @@ hr
     width: 100%;
 }
 
-.scroll-icon{
-    position: absolute;
-    top: -40px;
-    right: -60px;
-}
+
 
  input ~ .label:focus-within {
      @apply text-azure-radiance-800;
@@ -162,11 +158,11 @@ hr
 }
 
 .primary {
-    animation: primary 10s linear infinite;
+    animation: primary 20s linear infinite;
 }
 
 .secondary {
-    animation: secondary 10s linear infinite;
+    animation: secondary 20s linear infinite;
 }
 
 @keyframes primary {
