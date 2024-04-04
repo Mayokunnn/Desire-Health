@@ -7,7 +7,7 @@ Main.propTypes = {
 
 export default function Main({children, styles = ''}) {
   return (
-    <div className={`h-screen ${styles}`}>
+    <div className={` ${styles}`}>
         {children} 
     </div>
   )

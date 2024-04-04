@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
 import Loader from "./components/Loader";
 import Client from "./components/Client";
+import Organisation from "./components/Organisation";
 
 const Onboarding = lazy(() => import("./pages/Onboarding"));
 const Login = lazy(() => import("./components/Login"));
@@ -53,6 +54,22 @@ function App() {
                 element={
                   <Suspense fallback={<Loader />}>
                     <Client />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="worker"
+                element={
+                  <Suspense fallback={<Loader />}>
+                    <worker />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="organisation"
+                element={
+                  <Suspense fallback={<Loader />}>
+                    <Organisation />
                   </Suspense>
                 }
               />

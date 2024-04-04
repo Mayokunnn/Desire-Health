@@ -1,9 +1,16 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { RadioOption } from "./RadioOption";
+import { InputField } from "./InputField";
+
+// Common styles
+export const inputStyles =
+  "w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]";
+export const labelStyles = "uppercase font-medium";
 
 Form.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf(["login", "register"]),
   setOptions: PropTypes.func,
 };
 
@@ -12,103 +19,62 @@ export default function Form({ type = "", setOptions }) {
     setOptions(event.target.value);
   }
 
-  if (type === "login") {
-    return (
-      <form className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full max-w-[200px] lg:max-w-[300px] gap-2">
-        <h2 className="text-lg font-medium">Sign In</h2>
-        <div className="group">
-          <label htmlFor="email" className="uppercase font-medium ">
-            Email
-          </label>
-          <input
+  return (
+    <form className="bg-white rounded-md shadow border border-1 p-6 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2">
+      {type === "login" && (
+        <>
+          <h2 className="text-2xl lg:text-xl font-medium">Sign In</h2>
+          <InputField
+            label="Email"
             id="email"
-            className=" w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+            type="email"
+            className={inputStyles}
           />
-        </div>
-        <div>
-          <label
-            htmlFor="password"
-            className="uppercase font-medium text-azure-radiance-800 "
-          >
-            Password
-          </label>
-          <input
+          <InputField
+            label="Password"
             id="password"
-            className=" w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+            type="password"
+            className={inputStyles}
           />
-        </div>
+          <Link
+            className="ml-auto text-azure-radiance-800 font-bold"
+            to="/onboarding/reset"
+          >
+            Forgot Password?
+          </Link>
+        </>
+      )}
+      {type === "register" && (
+        <>
+          <div className="w-full space-y-2 p-3">
+            <RadioOption
+              value="client"
+              imageSrc="/assets/client.svg"
+              onChange={handleChange}
+            />
+            <RadioOption
+              value="worker"
+              imageSrc="/assets/healthcare.svg"
+              onChange={handleChange}
+            />
+            <RadioOption
+              value="organisation"
+              imageSrc="/assets/organisation.svg"
+              onChange={handleChange}
+            />
+          </div>
+        </>
+      )}
+      <Button text={type === "login" ? "sign in" : "continue"} type="form" />
+      <p className="text-xs lg:text-base text-center">
+        {type === "login" ? `Don't have an account yet? ` : `Have an account?`}
         <Link
-          className="ml-auto text-azure-radiance-800 font-bold"
-          to="/onboarding/reset"
+          className="text-azure-radiance-800 font-bold"
+          to={type === "login" ? "/onboarding/register" : "/onboarding"}
         >
-          Forgot Password ?
-        </Link>
-        <Button text="sign in" type="form" />
-        <p className="text-center">
-          {`Don't have an account yet? `}
-          <Link
-            className=" text-azure-radiance-800 font-bold"
-            to="/onboarding/register"
-          >
-            Create account
-          </Link>{" "}
-        </p>
-      </form>
-    );
-  }
-  if (type === "register") {
-    return (
-      <form className="bg-white rounded-md shadow border border-1 py-8 px-10 text-[10px] items-center flex flex-col w-full max-w-[200px] lg:max-w-[300px] gap-4">
-        <div className="w-full space-y-1 p-3">
-          <Link to={'client'}>
-            <label className="custom-radio">
-              <input
-                type="radio"
-                name="radio"
-                value={"client"}
-                onChange={handleChange}
-              />
-              <img src="/assets/client.svg" className="w-4 h-4" />
-              Client
-            </label>
-          </Link>
-          <Link to={'worker'}>
-            <label className="custom-radio">
-              <input
-                type="radio"
-                name="radio"
-                value={"worker"}
-                onChange={handleChange}
-              />
-              <img src="/assets/healthcare.svg" className="w-4 h-4" />
-              HealthCare Worker
-            </label>
-          </Link>
-
-          <Link to={'organisation'}>
-            <label className="custom-radio">
-              <input
-                type="radio"
-                name="radio"
-                value={"organisation"}
-                onChange={handleChange}
-              />
-              <img src="/assets/organisation.svg" className="w-4 h-4" />
-              Organisation
-            </label>
-          </Link>
-        </div>
-        <Button text="continue" type="form" />
-        <p>
-          Have an account?{" "}
-          <Link
-            className=" text-azure-radiance-800 font-bold"
-            to="/onboarding/login"
-          >
-            Login
-          </Link>{" "}
-        </p>
-      </form>
-    );
-  }
+          {type === "login" ? "Create account" : " Login"}
+        </Link>{" "}
+      </p>
+    </form>
+  );
 }

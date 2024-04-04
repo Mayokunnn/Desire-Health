@@ -13,8 +13,8 @@ export default function HomePage() {
   return (
     <Main>
       <div>
-        <div className="bg-organizational-bg-desktop bg-contain bg-no-repeat ">
-          <Navbar />
+        <div className="h-screen w-full bg-hero-mobile lg:bg-hero-desktop bg-contain bg-no-repeat ">
+          <Navbar pageType="header" />
           <Hero />
         </div>
         <Section>

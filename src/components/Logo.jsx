@@ -6,11 +6,11 @@ Logo.propTypes = {
 }
 
 export default function Logo({color}) {
-const colorHeader = color.toLowerCase() === 'header'
+const colorHeader = color === 'header'
 ? 'text-white text-lg'
-: color.toLowerCase() === 'footer'
+: color === 'footer'
 ? 'text-azure-radiance-600 text-3xl'
-: color.toLowerCase() === 'onboarding'
+: color === 'onboarding'
 ? 'text-azure-radiance-600 text-base'
 : 'text-black';
 

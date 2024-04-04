@@ -6,11 +6,17 @@ export default {
   ],
   theme: {
     backgroundImage: {
-      "organizational-bg-desktop": "url('/assets/hero.png')",
+      "hero-desktop": "url('/assets/hero.png')",
+      "hero-mobile": "url('/assets/hero-mobile.png')",
       "about-bg": "url(/assets/aboutus-bg.png)",
       "onboarding-bg": "url(/assets/onboarding-bg.png)"
     }, 
-
+    screens: {
+      'sm': '320px',
+      'md': '630px',
+      'lg': '960px',
+      'xl': '1240px',
+    },
     extend: {
       colors:{
         'azure-radiance': {

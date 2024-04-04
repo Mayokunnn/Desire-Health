@@ -6,7 +6,7 @@ export default function HeroContent() {
       <h2 className="font-semibold text-5xl leading-snug">
         Health Education Platform you can Trust
       </h2>
-      <p className="">
+      <p className="text-base">
         For your routine patient education sessions on Antenatal care,
         Adolescent Reproductive Health and More!
       </p>
