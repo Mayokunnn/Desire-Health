@@ -8,8 +8,8 @@ InputField.propTypes = {
 export function InputField({ label, id, ...rest }) {
   // Common styles
   const inputStyles =
-    "w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]";
-  const labelStyles = "text-gray-600 uppercase font-semibold";
+    "text-xl lg:text-3xl w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]";
+  const labelStyles = "text-gray-600 uppercase font-semibold text-xs";
 
   return (
     <div>
@@ -20,4 +20,3 @@ export function InputField({ label, id, ...rest }) {
     </div>
   );
 }
-

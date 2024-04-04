@@ -11,7 +11,7 @@ export default function Worker() {
     setIsChecked((check) => !check);
   };
   return (
-    <form className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full max-w-[200px] lg:max-w-[300px] gap-2">
+    <form className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2">
       <h2 className="text-xl font-medium">HealthCare Worker</h2>
       <div>
         <InputField
@@ -21,7 +21,7 @@ export default function Worker() {
           className={inputStyles}
         />
       </div>
-      <div className="flex gap-2">
+      <div className="grid grid-cols-2 gap-2">
         <div>
           <label htmlFor="sex" className={labelStyles}>
             Sex

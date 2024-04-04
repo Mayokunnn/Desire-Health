@@ -36,7 +36,7 @@ export default function Navbar({ type = "", pageType = "" }) {
           "Contact Us",
         ]}
       />
-      <div className=":flex gap-6 items-center justify-center">
+      <div className="hidden lg:flex gap-6 items-center justify-center">
         {pageType === "header" && <Button type="transparent" text="Sign In" />}
         <Button
           type={buttonType}
@@ -45,8 +45,12 @@ export default function Navbar({ type = "", pageType = "" }) {
         />
       </div>
       <img
-        className={`w-6 ${pageType !== "header" ? "hidden" : ""}`}
-        src="/assets/menu-icon.svg"
+        className="lg:hidden w-6"
+        src={`${
+          pageType === "header"
+            ? "/assets/menu-icon.svg"
+            : "/assets/menu-icon-black.svg"
+        }`}
         alt="Menu Icon"
       />
     </div>

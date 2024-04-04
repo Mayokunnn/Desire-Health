@@ -9,11 +9,16 @@ export default function Onboarding() {
   console.log(isLoginPage);
 
   return (
-    <Main styles="bg-onboarding h-screen flex flex-col">
+    <Main styles="bg-onboarding h-screen flex flex-col overflow-auto">
       <Navbar type={isLoginPage ? "onboarding" : ""} pageType={"onboarding"} />
-      <div className="flex items-center justify-center flex-grow">
+      <div className="z-10 flex items-center justify-center flex-grow">
         <Outlet />
       </div>
+      <img
+        src="/assets/onboarding-bg.png"
+        alt="Onboarding Background"
+        className="absolute bottom-0 -right-5 z-0"
+      />
     </Main>
   );
 }

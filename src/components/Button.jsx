@@ -12,7 +12,6 @@ export default function Button({
   text = "register",
   pageType = "",
 }) {
-  console.log(pageType);
   let buttonContent;
   let linkTo;
 
@@ -30,11 +29,9 @@ export default function Button({
     return (
       <Link
         to={linkTo}
-        className={`${
-          pageType === "header" ? "hidden" : ""
-        } text-white text-sm lg:text-lg capitalize bg-azure-radiance-600 px-4 max-w-3-6 py-2 rounded hover:bg-azure-radiance-700 transition`}
+        className={`text-white text-sm lg:text-lg capitalize bg-azure-radiance-600 px-4 max-w-3-6 py-2 rounded hover:bg-azure-radiance-700 transition`}
       >
-        {text === "get started" ? "get started" : buttonContent}
+        {text === "register" || text === "sign in" ? buttonContent : text}
       </Link>
     );
   }
@@ -45,18 +42,18 @@ export default function Button({
       </button>
     );
   }
-  if (type === "small") {
-    return (
-      <button className="text-white text-xs bg-azure-radiance-600 ml-3 px-3 max-w-3-6 py-1.5 rounded hover:bg-azure-radiance-700 transition capitalize">
-        {text}
-      </button>
-    );
-  }
+  // if (type === "small") {
+  //   return (
+  //     <button className="text-white text-xs bg-azure-radiance-600 ml-3 px-3 max-w-3-6 py-1.5 rounded hover:bg-azure-radiance-700 transition capitalize">
+  //       {text}
+  //     </button>
+  //   );
+  // }
   if (type === "transparent") {
     return (
       <Link
         to="/onboarding"
-        className="hidden lg:block text-white text-lg font-medium capitalize border-white border px-4 py-1.5 rounded-sm hover:bg-white hover:text-gray-950 transition-colors"
+        className=" text-white text-lg font-medium capitalize border-white border px-4 py-1.5 rounded-sm hover:bg-white hover:text-gray-950 transition-colors"
       >
         Login
       </Link>

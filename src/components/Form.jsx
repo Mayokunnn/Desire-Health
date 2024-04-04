@@ -46,6 +46,7 @@ export default function Form({ type = "", setOptions }) {
       )}
       {type === "register" && (
         <>
+          <h2 className="text-xl font-medium text-center">Register as a</h2>
           <div className="w-full space-y-2 p-3">
             <RadioOption
               value="client"
@@ -66,7 +67,7 @@ export default function Form({ type = "", setOptions }) {
         </>
       )}
       <Button text={type === "login" ? "sign in" : "continue"} type="form" />
-      <p className="text-xs lg:text-base text-center">
+      <p className=" lg:text-base text-center">
         {type === "login" ? `Don't have an account yet? ` : `Have an account?`}
         <Link
           className="text-azure-radiance-800 font-bold"

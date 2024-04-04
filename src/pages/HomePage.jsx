@@ -13,21 +13,45 @@ export default function HomePage() {
   return (
     <Main>
       <div>
-        <div className="h-screen w-full bg-hero-mobile lg:bg-hero-desktop bg-contain bg-no-repeat ">
+        <div className="grid grid-rows-[auto_1fr] h-screen w-full bg-hero-mobile lg:bg-hero-desktop bg-cover bg-no-repeat ">
           <Navbar pageType="header" />
           <Hero />
         </div>
         <Section>
           <SectionTitle title={"our services"} side={"right"} />
-          <div className="grid grid-cols-3 gap-2 m-5">
-            {servicesArray.map((serv, i) => (
-              <ServicesCard
-                key={i}
-                icon={serv.icon}
-                title={serv.title}
-                content={serv.content}
-              />
-            ))}
+          <div className="lg:hidden scroll-parent flex gap-3 h-[70vh] ">
+            <div className="scroll-element flex primary  gap-5 m-5">
+              {servicesArray.map((serv, i) => (
+                <ServicesCard
+                  key={i}
+                  icon={serv.icon}
+                  title={serv.title}
+                  content={serv.content}
+                />
+              ))}
+            </div>
+            <div className="scroll-element flex secondary lg:grid lg:grid-cols-3 gap-8 lg:gap-2 m-5">
+              {servicesArray.map((serv, i) => (
+                <ServicesCard
+                  key={i}
+                  icon={serv.icon}
+                  title={serv.title}
+                  content={serv.content}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="hidden lg:block gap-3 h-[70vh] ">
+            <div className="grid grid-cols-3 gap-2 m-5">
+              {servicesArray.map((serv, i) => (
+                <ServicesCard
+                  key={i}
+                  icon={serv.icon}
+                  title={serv.title}
+                  content={serv.content}
+                />
+              ))}
+            </div>
           </div>
         </Section>
         <Section color={"grey"} type="about">
