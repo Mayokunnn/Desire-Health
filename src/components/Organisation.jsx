@@ -24,12 +24,12 @@ export default function Organisation() {
       <div className="flex gap-2">
         <span
           className={`h-0.5 w-1/2 ${
-            currentStep >= 1 ? "bg-azure-radiance-800" : "bg-gray-700"
+            currentStep === 1 ? "bg-azure-radiance-800" : "bg-gray-500"
           } rounded`}
         ></span>
         <span
           className={`h-0.5 w-1/2 ${
-            currentStep >= 2 ? "bg-azure-radiance-800" : "bg-gray-700"
+            currentStep === 2 ? "bg-azure-radiance-800" : "bg-gray-500"
           } rounded`}
         ></span>
       </div>

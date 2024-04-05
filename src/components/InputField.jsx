@@ -8,7 +8,7 @@ InputField.propTypes = {
 export function InputField({ label, id, ...rest }) {
   // Common styles
   const inputStyles =
-    "text-xl lg:text-xs w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]";
+    "text-xs lg:text-sm w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-700 focus:outline-none focus:border-[1.5px]";
   const labelStyles = "text-gray-600 uppercase font-semibold text-xs";
 
   return (

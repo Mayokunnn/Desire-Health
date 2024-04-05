@@ -5,6 +5,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Loader from "./components/Loader";
 import Client from "./components/Client";
 import Organisation from "./components/Organisation";
+import ForgotPassword from "./components/ForgotPassword";
 
 const Onboarding = lazy(() => import("./pages/Onboarding"));
 const Login = lazy(() => import("./components/Login"));
@@ -74,6 +75,14 @@ function App() {
                 }
               />
             </Route>
+            <Route
+              path="reset"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <ForgotPassword />
+                </Suspense>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

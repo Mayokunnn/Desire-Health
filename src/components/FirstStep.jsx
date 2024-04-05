@@ -37,7 +37,7 @@ export function FirstStep({ onNext }) {
     // If all required fields are filled, proceed to the next step
     onNext(formData);
   };
-  
+
   return (
     <div className="space-y-3">
       <InputField
@@ -85,7 +85,7 @@ export function FirstStep({ onNext }) {
           name="companyType"
           value={formData.companyType}
           onChange={handleChange}
-          className="text-xl lg:text-xs w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+          className="text-xs lg:text-sm w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
         >
           <option value="Private">Private</option>
           <option value="Public">Public</option>

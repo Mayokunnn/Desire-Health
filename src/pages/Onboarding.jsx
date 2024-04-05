@@ -17,7 +17,7 @@ export default function Onboarding() {
       <img
         src="/assets/onboarding-bg.png"
         alt="Onboarding Background"
-        className="absolute bottom-0 -right-5 z-0"
+        className="absolute bottom-0 right-0 z-0"
       />
     </Main>
   );

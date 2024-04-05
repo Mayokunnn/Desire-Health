@@ -22,7 +22,7 @@ export default function Navbar({ type = "", pageType = "" }) {
   }
 
   return (
-    <div className="flex items-center justify-between px-6 py-3 lg:px-16 lg:py-6 w-full">
+    <div className="flex items-center justify-between px-6 py-3 lg:px-16 lg:py-6 w-full z-50">
       <Logo color={pageType !== "header" ? "onboarding" : "header"} />
       <NavList
         type={pageType}
