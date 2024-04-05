@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import MyLink from "./MyLink";
 
 Button.propTypes = {
   type: PropTypes.string,
@@ -12,7 +12,7 @@ export default function Button({
   type = "primary",
   text = "register",
   pageType = "",
-  onClick = function(){}
+  onClick = () => {},
 }) {
   let buttonContent;
   let linkTo;
@@ -29,12 +29,11 @@ export default function Button({
       linkTo = "/onboarding/register"; // Set the link for Register
     }
     return (
-      <Link
+      <MyLink
         to={linkTo}
+        text={text === "register" || text === "sign in" ? buttonContent : text}
         className={`text-white text-sm lg:text-lg capitalize bg-azure-radiance-600 px-4 max-w-3-6 py-2 rounded hover:bg-azure-radiance-700 transition`}
-      >
-        {text === "register" || text === "sign in" ? buttonContent : text}
-      </Link>
+      />
     );
   }
   if (type === "secondary") {
@@ -53,17 +52,19 @@ export default function Button({
   // }
   if (type === "transparent") {
     return (
-      <Link
+      <MyLink
         to="/onboarding"
-        className=" text-white text-lg font-medium capitalize border-white border px-4 py-1.5 rounded-sm hover:bg-white hover:text-gray-950 transition-colors"
-      >
-        Login
-      </Link>
+        text="Login"
+        className="text-white text-lg font-medium capitalize border-white border px-4 py-1.5 rounded-sm hover:bg-white hover:text-gray-950 transition-colors"
+      />
     );
   }
   if (type === "form") {
     return (
-      <button onClick={onClick} className="text-white text-xs bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize">
+      <button
+        onClick={onClick}
+        className="text-white text-xs bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize"
+      >
         {text}
       </button>
     );

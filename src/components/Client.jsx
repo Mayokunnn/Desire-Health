@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { inputStyles, labelStyles } from "./Form";
 import { InputField } from "./InputField";
 import Button from "./Button";
 import { Link } from "react-router-dom";
@@ -15,29 +14,30 @@ export default function Client() {
     <form className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2">
       <h2 className="text-2xl font-medium">Client</h2>
       <div>
-        <InputField
-          label="Full Name"
-          id="fullname"
-          type="name"
-          className={inputStyles}
-        />
+        <InputField label="Full Name" id="fullname" type="name" />
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div>
-          <label htmlFor="sex" className={labelStyles}>
+          <label htmlFor="sex" className="uppercase font-medium">
             Sex
           </label>
-          <select id="sex" className={inputStyles}>
+          <select
+            id="sex"
+            className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+          >
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
         </div>
         <div>
-          <label htmlFor="dob" className={labelStyles}>
+          <label htmlFor="dob" className="uppercase font-medium">
             Date of Birth
           </label>
-          <select id="dob" className={inputStyles}>
+          <select
+            id="dob"
+            className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+          >
             <option value="01">January</option>
             <option value="02">February</option>
             <option value="03">March</option>
@@ -46,34 +46,22 @@ export default function Client() {
         </div>
       </div>
       <div>
-        <InputField
-          label="Phone Number"
-          id="phone"
-          type="phone"
-          className={inputStyles}
-        />
+        <InputField label="Phone Number" id="phone" type="phone" />
       </div>
       <div>
-        <InputField
-          label="Email"
-          id="email"
-          type="email"
-          className={inputStyles}
-        />
+        <InputField label="Email" id="email" type="email" />
       </div>
       <div>
-        <InputField
-          label="Password"
-          id="password"
-          type="password"
-          className={inputStyles}
-        />
+        <InputField label="Password" id="password" type="password" />
       </div>
       <div>
-        <label htmlFor="pregnant" className={labelStyles}>
+        <label htmlFor="pregnant" className="uppercase font-medium">
           Pregnant
         </label>
-        <select id="pregnant" className={inputStyles}>
+        <select
+          id="pregnant"
+          className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+        >
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>

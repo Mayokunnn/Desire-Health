@@ -4,7 +4,6 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 export default function ForgotPassword() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -13,7 +12,7 @@ export default function ForgotPassword() {
     newPassword: "",
     confirmPassword: "Private",
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,16 +24,21 @@ export default function ForgotPassword() {
     // Check if any of the required fields are empty
     if (formData.email.trim() === "" || formData.otp.trim() === "") return; // Stop the function execution if any field is empty
 
-    setCurrentStep(2)
+    setCurrentStep(2);
   };
 
   const handleReset = (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Check if any of the required fields are empty
-    if (formData.newPassword.trim() === "" || formData.confirmPassword.trim() === "" || formData.newPassword.trim() !== formData.confirmPassword.trim()) return; // Stop the function execution if any field is empty
+    if (
+      formData.newPassword.trim() === "" ||
+      formData.confirmPassword.trim() === "" ||
+      formData.newPassword.trim() !== formData.confirmPassword.trim()
+    )
+      return; // Stop the function execution if any field is empty
 
-    navigate('/onboarding')
+    navigate("/onboarding");
   };
 
   return (
