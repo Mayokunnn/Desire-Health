@@ -9,7 +9,7 @@ export default function SectionTitle({ side, title }) {
   console;
   return (
     <h3
-      className={`${position} inline-block capitalize text-grey-800 text-xl lg:text-2xl font-medium`}
+      className={`${position} inline-block capitalize text-grey-800 text-xl md:text-2xl font-medium`}
     >
       {title}
     </h3>

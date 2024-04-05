@@ -8,8 +8,12 @@ export default {
     backgroundImage: {
       "hero-desktop": "url('/assets/hero.png')",
       "hero-mobile": "url('/assets/hero-mobile.png')",
+      "hero-tablet": "url('/assets/hero-tablet.png')",
       "about-bg": "url(/assets/aboutus-bg.png)",
-      "onboarding-bg": "url(/assets/onboarding-bg.png)"
+      "onboarding-bg": "url(/assets/onboarding-bg.png)",
+      "pregnant-desk": "url(/assets/pregnant.png)",
+      "pregnant-tab": "url(/assets/pregnant-tab.png)",
+
     }, 
     screens: {
       'sm': '320px',

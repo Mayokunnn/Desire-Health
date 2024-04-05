@@ -20,7 +20,7 @@ export default function Button({
   if (type === "primary") {
     if (pageType === "header") {
       buttonContent = "Register";
-      linkTo = "/onboarding/register"; // Set the link for Sign Up
+      linkTo = "/onboarding/register"; // Set the link for Sign  from homepage
     } else if (text === "register") {
       buttonContent = "Sign In";
       linkTo = "/onboarding/login"; // Set the link for Sign In
@@ -32,30 +32,24 @@ export default function Button({
       <MyLink
         to={linkTo}
         text={text === "register" || text === "sign in" ? buttonContent : text}
-        className={`text-white text-sm lg:text-lg capitalize bg-azure-radiance-600 px-4 max-w-3-6 py-2 rounded hover:bg-azure-radiance-700 transition`}
+        className={`text-white text-sm md:text-base lg:text-lg capitalize bg-azure-radiance-600 px-4 max-w-3-6 py-2 rounded hover:bg-azure-radiance-700 transition`}
       />
     );
   }
   if (type === "secondary") {
     return (
-      <button className="text-white bg-[#66748c] text-xs px-4 py-2 max-w-3-6 rounded hover:bg-[#535f76] transition capitalize">
+      <button className="text-white text-sm md:text-base lg:text-lg  bg-[#66748c] text-xs px-4 py-2 max-w-3-6 rounded hover:bg-[#535f76] transition capitalize">
         {text}
       </button>
     );
   }
-  // if (type === "small") {
-  //   return (
-  //     <button className="text-white text-xs bg-azure-radiance-600 ml-3 px-3 max-w-3-6 py-1.5 rounded hover:bg-azure-radiance-700 transition capitalize">
-  //       {text}
-  //     </button>
-  //   );
-  // }
+
   if (type === "transparent") {
     return (
       <MyLink
         to="/onboarding"
         text="Login"
-        className="text-white text-lg font-medium capitalize border-white border px-4 py-1.5 rounded-sm hover:bg-white hover:text-gray-950 transition-colors"
+        className="text-white text-sm md:text-base lg:text-lg font-medium capitalize border-white border px-4 py-1.5 rounded-sm hover:bg-white hover:text-gray-950 transition-colors"
       />
     );
   }
@@ -63,7 +57,7 @@ export default function Button({
     return (
       <button
         onClick={onClick}
-        className="text-white text-xs bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize"
+        className="text-white text-sm md:text-base lg:text-lg  bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize"
       >
         {text}
       </button>

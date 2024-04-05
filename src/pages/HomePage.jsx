@@ -13,13 +13,13 @@ export default function HomePage() {
   return (
     <Main>
       <div>
-        <div className="grid grid-rows-[auto_1fr] h-screen w-full bg-hero-mobile lg:bg-hero-desktop bg-cover bg-no-repeat ">
+        <div className="grid grid-rows-[auto_1fr] h-screen w-full bg-hero-desktop bg-cover bg-center bg-no-repeat ">
           <Navbar pageType="header" />
           <Hero />
         </div>
         <Section>
           <SectionTitle title={"our services"} side={"right"} />
-          <div className="lg:hidden scroll-parent flex gap-3 h-[30vh] md:h-[70vh] ">
+          <div className="w-full lg:hidden scroll-parent flex gap-3 h-[30vh]">
             <div className="scroll-element flex primary  gap-6 m-2 lg:m-5">
               {servicesArray.map((serv, i) => (
                 <ServicesCard
@@ -41,6 +41,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+
           <div className="hidden lg:block gap-3 h-fit ">
             <div className="grid grid-cols-3 gap-2 m-5">
               {servicesArray.map((serv, i) => (

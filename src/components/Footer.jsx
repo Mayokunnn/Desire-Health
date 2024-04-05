@@ -58,7 +58,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex gap-2 lg:gap-6 ">
+        <div className="text-xs md:text-base flex gap-2 lg:gap-6 ">
           <ul className="space-y-1 lg:space-y-2">
             <li>About Us</li>
             <li>Join Us</li>

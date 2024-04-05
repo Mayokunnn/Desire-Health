@@ -37,9 +37,9 @@ export default function ServicesCard({ title, content, icon }) {
     <div className="max-w-[80%]  max-h-[85%] lg:max-h-fit lg:max-w-fit shrink-0 px-5 lg:px-8 py-6 lg:py-8 rounded-md shadow border border-1 space-y-4">
       <div className="grid grid-cols-[auto_1fr] items-center justify-start gap-2">
         <img className="w-10" src={`/assets/logo-${icon}.svg`} alt={title} />
-        <h3 className="font-semibold lg:text-lg">{title}</h3>
+        <h3 className="font-semibold md:text-2xl lg:text-lg">{title}</h3>
       </div>
-      <p className="text-sm lg:text-[10px]">{boldedContent}</p>
+      <p className="text-sm md:text-xl lg:text-[10px]">{boldedContent}</p>
     </div>
   );
 }

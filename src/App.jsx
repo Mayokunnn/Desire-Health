@@ -43,7 +43,7 @@ function App() {
               }
             />
             <Route
-              path="register"
+              path="register/*"
               element={
                 <Suspense fallback={<Loader />}>
                   <Register />
