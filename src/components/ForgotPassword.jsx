@@ -22,7 +22,7 @@ export default function ForgotPassword() {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Check if any of the required fields are empty
-    if (formData.email.trim() === "" || formData.otp.trim() === "") return; // Stop the function execution if any field is empty
+    if (formData.email.trim() === "" || formData.otp.trim() === "") return;
 
     setCurrentStep(2);
   };

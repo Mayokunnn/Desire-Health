@@ -1,11 +1,8 @@
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 
 export function RadioOption({ value, imageSrc, onChange }) {
-  const navigate = useNavigate();
   const handleChange = (event) => {
        onChange(event); 
-       navigate(event.target.value);
   }
 
   return (
@@ -16,7 +13,6 @@ export function RadioOption({ value, imageSrc, onChange }) {
         value={value}
         onChange={(e) => {
          handleChange(e);
-         console.log(e.target.value);
         }}
       />
       <img src={imageSrc} className="w-4 h-4" alt={value} />

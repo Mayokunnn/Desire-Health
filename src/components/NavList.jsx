@@ -16,6 +16,7 @@ export default function NavList({ navItems, type = "" }) {
                 ? ""
                 : item.toLowerCase().replace(/\s/g, "")
             }`}
+            activeClassName='active'
             className={`${
               type === "onboarding"
                 ? "text-gray-800 font-medium"

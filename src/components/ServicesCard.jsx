@@ -39,7 +39,7 @@ export default function ServicesCard({ title, content, icon }) {
         <img className="w-10" src={`/assets/logo-${icon}.svg`} alt={title} />
         <h3 className="font-semibold md:text-2xl lg:text-lg">{title}</h3>
       </div>
-      <p className="text-sm md:text-xl lg:text-[10px]">{boldedContent}</p>
+      <p className="text-sm md:text-xl lg:text-lg lg:leading-9">{boldedContent}</p>
     </div>
   );
 }

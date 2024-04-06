@@ -19,7 +19,7 @@ export default function HomePage() {
         </div>
         <Section>
           <SectionTitle title={"our services"} side={"right"} />
-          <div className="w-full lg:hidden scroll-parent flex gap-3 h-[30vh]">
+          <div className="w-full lg:hidden scroll-parent flex gap-3 h-[30vh] ">
             <div className="scroll-element flex primary  gap-6 m-2 lg:m-5">
               {servicesArray.map((serv, i) => (
                 <ServicesCard
@@ -42,8 +42,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hidden lg:block gap-3 h-fit ">
-            <div className="grid grid-cols-3 gap-2 m-5">
+          <div className="hidden lg:block h-[70vh] ">
+            <div className="grid grid-cols-3 justify-center gap-6">
               {servicesArray.map((serv, i) => (
                 <ServicesCard
                   key={i}

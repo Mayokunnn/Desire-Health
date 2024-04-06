@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
         className="hidden lg:block w-full lg:order-2"
         src="/assets/pregnant.png"
       />
-      <img className="w-full lg:order-2" src="/assets/pregnant-tab.png" />
+      <img className="lg:hidden w-full lg:order-2" src="/assets/pregnant-tab.png" />
     </div>
   );
 }

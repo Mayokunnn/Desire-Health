@@ -12,8 +12,7 @@ body{
 }
 @layer components {
 
-/* .active{
-    font-weight: 600;
+.active{
     position: relative;
     color: white;
 }
@@ -21,13 +20,14 @@ body{
 .active::after{
     content: '';
   height: 2px; 
-  width: 110%;
+  width: 100%;
+  border-radius: 30%;
   position: absolute;
   bottom: -2px;
   left: 0;
   background-color: white; 
 } 
-*/
+
 
 .title--left, .title--right{
     color: black;

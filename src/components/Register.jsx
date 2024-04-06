@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
 import Form from "./Form";
 import Client from "./Client";
 import Worker from "./Worker";
@@ -24,16 +23,9 @@ export default function Register() {
       <div className="block lg:flex items-start justify-center">
         {options ? null : <Form type="register" setOptions={setOptions} />}
 
-        {options && (
-          <div>
-            <Routes>
-              <Route path="/" element={<Outlet />} />
-              <Route path="client" element={<Client />} />
-              <Route path="worker" element={<Worker />} />
-              <Route path="organisation" element={<Organisation />} />
-            </Routes>
-          </div>
-        )}
+        {options === "client" && <Client />}
+        {options === "worker" && <Worker />}
+        {options === "organisation" && <Organisation />}
       </div>
     </div>
   );
