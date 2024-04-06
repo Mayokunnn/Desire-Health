@@ -1,13 +1,22 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "./pages/HomePage";
 import PageNotFound from "./pages/PageNotFound";
 import Loader from "./components/Loader";
 import ForgotPassword from "./components/ForgotPassword";
+import { QueryClient } from "@tanstack/react-query";
 
-const Onboarding = lazy(() => import("./pages/Onboarding"));
+const Onboarding = lazy(() => import("./pages/HomePage"));
+const HomePage = lazy(() => import("./pages/Onboarding"));
 const Login = lazy(() => import("./components/Login"));
 const Register = lazy(() => import("./components/Register"));
+
+const queryClient = new QueryClient({
+    defaultOptions : {
+      queries: {
+        staleTime: 60 * 1000,
+      }
+    }
+})
 
 function App() {
   return (
