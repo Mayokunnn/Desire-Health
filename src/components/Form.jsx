@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import { RadioOption } from "./RadioOption";
 import { InputField } from "./InputField";
+import { useForm } from "react-hook-form";
 
 // Common styles
 export const inputStyles =
@@ -19,6 +20,8 @@ export default function Form({ type = "", setOptions }) {
     setOptions(event.target.value);
   }
 
+  const {register, handleSubmit} = useForm()
+
   return (
     <form className="bg-white rounded-md shadow border border-1 p-6 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2">
       {type === "login" && (
@@ -29,12 +32,14 @@ export default function Form({ type = "", setOptions }) {
             id="email"
             type="email"
             className={inputStyles}
+            register={register}
           />
           <InputField
             label="Password"
             id="password"
             type="password"
             className={inputStyles}
+            register={register}
           />
           <Link
             className="ml-auto text-azure-radiance-800 font-bold"
