@@ -2,19 +2,35 @@ import { useState } from "react";
 import { InputField } from "./InputField";
 import Button from "./Button";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export default function Client() {
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = () => {
-    setIsChecked((check) => !check);
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+    console.log(e);
   };
 
+  const {register, handleSubmit} = useForm()
+
+   function onSubmit(data) {
+     console.log(data);
+   }
+
   return (
-    <form className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2">
+    <form
+      className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <h2 className="text-2xl font-medium">Client</h2>
       <div>
-        <InputField label="Full Name" id="fullname" type="name" />
+        <InputField
+          label="Full Name"
+          id="fullname"
+          type="name"
+          register={register}
+        />
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div>
@@ -37,6 +53,7 @@ export default function Client() {
           <select
             id="dob"
             className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+            {...register('dob')}
           >
             <option value="01">January</option>
             <option value="02">February</option>
@@ -46,13 +63,23 @@ export default function Client() {
         </div>
       </div>
       <div>
-        <InputField label="Phone Number" id="phone" type="phone" />
+        <InputField
+          label="Phone Number"
+          id="phone"
+          type="phone"
+          register={register}
+        />
       </div>
       <div>
-        <InputField label="Email" id="email" type="email" />
+        <InputField label="Email" id="email" type="email" register={register} />
       </div>
       <div>
-        <InputField label="Password" id="password" type="password" />
+        <InputField
+          label="Password"
+          id="password"
+          type="password"
+          register={register}
+        />
       </div>
       <div>
         <label htmlFor="pregnant" className="uppercase font-medium">
@@ -61,6 +88,7 @@ export default function Client() {
         <select
           id="pregnant"
           className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+          {...register("pregnant")}
         >
           <option value={true}>Yes</option>
           <option value={false}>No</option>
@@ -69,11 +97,12 @@ export default function Client() {
       <div className="flex items-center justify-center gap-2">
         <input
           type="checkbox"
-          id="checkbox"
+          id="termsAndConditions"
           checked={isChecked}
-          onChange={handleCheckboxChange}
+          onClick={handleCheckboxChange}
+          {...register("termsAndConditions")}
         />
-        <label htmlFor="checkbox">
+        <label htmlFor="termsAndConditions">
           Check here to indicate that you understand and accept the terms and
           conditions of{" "}
           <span className="text-azure-radiance-800 font-semibold">

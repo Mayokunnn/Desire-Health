@@ -99,7 +99,7 @@ hr
   }
   
   .custom-radio:has(input:checked){
-    border: 1.5px solid #0a75fb;
+    border: 2px solid #0a75fb;
     
   }
 

@@ -1,4 +1,4 @@
-import Form from "./Form";
+import LoginForm from "./LoginForm";
 
 export default function Login() {
   return (
@@ -15,7 +15,7 @@ export default function Login() {
         />
       </div>
       <div className="block lg:flex items-start justify-center">
-        <Form type="login" />
+        <LoginForm type="login" />
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import Navbar from "../components/Navbar";
 export default function Onboarding() {
   const location = useLocation();
   const isLoginPage = location.pathname.includes("login");
-  console.log(isLoginPage);
 
   return (
     <Main styles="bg-onboarding h-screen flex flex-col overflow-auto">

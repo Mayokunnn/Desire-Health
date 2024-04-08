@@ -38,7 +38,7 @@ export default function Button({
   }
   if (type === "secondary") {
     return (
-      <button className="text-white text-sm md:text-base lg:text-lg  bg-[#66748c] text-xs px-4 py-2 max-w-3-6 rounded hover:bg-[#535f76] transition capitalize">
+      <button className="text-white text-sm md:text-base lg:text-lg  bg-[#66748c] px-4 py-2 max-w-3-6 rounded hover:bg-[#535f76] transition capitalize">
         {text}
       </button>
     );
@@ -57,7 +57,7 @@ export default function Button({
     return (
       <button
         onClick={onClick}
-        className="text-white text-sm md:text-base lg:text-lg  bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize"
+        className="text-white text-sm md:text-base lg:text-sm  bg-azure-radiance-600 flex items-center justify-center w-full py-2 rounded hover:bg-azure-radiance-700 transition capitalize"
       >
         {text}
       </button>

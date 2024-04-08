@@ -42,7 +42,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hidden lg:block h-[70vh] ">
+          <div className="hidden lg:block h-[80vh] ">
             <div className="grid grid-cols-3 justify-center gap-6">
               {servicesArray.map((serv, i) => (
                 <ServicesCard

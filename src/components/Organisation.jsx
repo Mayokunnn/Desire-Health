@@ -1,23 +1,24 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { FirstStep } from "./FirstStep";
 import { SecondStep } from "./SecondStep";
+import { useForm } from "react-hook-form";
 
 export default function Organisation() {
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({});
-  const navigate = useNavigate();
 
-  const handleNext = (data) => {
+  const { register, handleSubmit } = useForm();
+
+  function onSubmit(data) {
+    console.log(data);
+  }
+
+
+  const handleNext = () => {
     setCurrentStep(2);
-    setFormData(data);
   };
 
-  const handleSubmit = (data) => {
-    setFormData(data);
-    navigate("/onboarding");
-  };
-
+  
   return (
     <form className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2">
       <h2 className="text-xl font-medium">Organisation</h2>
@@ -33,8 +34,12 @@ export default function Organisation() {
           } rounded`}
         ></span>
       </div>
-      {currentStep === 1 && <FirstStep onNext={handleNext} />}
-      {currentStep === 2 && <SecondStep onNext={handleSubmit} />}
+      {currentStep === 1 && (
+        <FirstStep onNext={handleNext} register={register} />
+      )}
+      {currentStep === 2 && (
+        <SecondStep onSubmit={handleSubmit(onSubmit)} register={register} />
+      )}
     </form>
   );
 }

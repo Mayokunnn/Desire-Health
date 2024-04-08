@@ -1,11 +1,21 @@
-import { useState } from "react";
-import Form from "./Form";
+import { useEffect, useState } from "react";
 import Client from "./Client";
 import Worker from "./Worker";
 import Organisation from "./Organisation";
+import RegisterForm from "./RegisterForm";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
 export default function Register() {
   const [options, setOptions] = useState("");
+  
+  
+
+  useEffect(() => {
+    if (location.pathname === "/onboarding/register") {
+      setOptions("");
+    }
+    console.log(location.pathname);
+  }, []);
 
   return (
     <div className="inline-block lg:grid lg:grid-cols-2 px-4 lg:px-24 lg:py-6 gap-2">
@@ -21,11 +31,25 @@ export default function Register() {
         />
       </div>
       <div className="block lg:flex items-start justify-center">
-        {options ? null : <Form type="register" setOptions={setOptions} />}
+        {options ? null : (
+          <RegisterForm
+            type="register"
+            setOptions={setOptions}
+            options={options}
+          />
+        )}
 
-        {options === "client" && <Client />}
-        {options === "worker" && <Worker />}
-        {options === "organisation" && <Organisation />}
+        {options && (
+          <Routes>
+            <Route path="/" element={<Outlet />}>
+              <Route path="organisation" element={<Organisation />} />
+              <Route path="client" element={<Client />} />
+              <Route path="worker" element={<Worker />} />
+            </Route>
+          </Routes>
+        )}
+
+        {!options && <Navigate to="/onboarding/register" replace />}
       </div>
     </div>
   );
