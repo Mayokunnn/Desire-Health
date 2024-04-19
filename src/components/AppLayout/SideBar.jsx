@@ -20,7 +20,7 @@ export const SideBar = ({ onToggle, isVisible }) => {
             <Logo color={"app"} />
           </div>
           <div className="absolute  z-11">
-            <LiaTimesSolid onClick={onToggle} />
+            <LiaTimesSolid color="#63697A" onClick={onToggle} />
           </div>
           <MainNav />
         </div>

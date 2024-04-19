@@ -26,11 +26,11 @@ export const AppLayout = () => {
       </div>
       <div className="lg:hidden h-screen grid-[auto_1fr]">
         <div className="flex justify-between items-center p-2  bg-[#F9FAFC] border-b border-gray-100 ">
-          <HiMenuAlt2 size={22} onClick={onToggle} />
+          <HiMenuAlt2 size={22} onClick={onToggle} color="#63697A" />
           {!isVisible && <Logo color={"app"} />}
           <div className="relative">
             <span className="w-1.5 h-1.5 right-1.5 top-1 absolute z- rounded bg-[red]"></span>
-            <IoIosNotificationsOutline size={22} />
+            <IoIosNotificationsOutline color="#63697A" size={22} />
           </div>
         </div>
         <SideBar onToggle={onToggle} isVisible={isVisible} />
