@@ -19,8 +19,6 @@ app.use(cookieParser());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const MONGO_URI =
-  "mongodb+srv://lukasio:rJYZ2NRas1Q00QAE@cluster0.w4nl6uh.mongodb.net/users";
 mongoose.connect(MONGO_URI);
 
 const db = mongoose.connection;
