@@ -12,22 +12,13 @@ body{
 }
 @layer components {
 
-.active{
-    position: relative;
-    color: white;
+nav > *{
+    @apply flex gap-2.5 px-2 justify-start items-center text-left py-1.5
 }
 
-.active::after{
-    content: '';
-  height: 2px; 
-  width: 100%;
-  border-radius: 30%;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  background-color: white; 
-} 
-
+nav > a.active{
+    @apply bg-[#F0F1F2] rounded w-full
+}
 
 .title--left, .title--right{
     color: black;

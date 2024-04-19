@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound";
 
@@ -6,24 +6,35 @@ import Loader from "./components/Loader";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import HomePage from "./pages/HomePage";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import Client from "./components/Client";
-import Worker from "./components/Worker";
-import Organisation from "./components/Organisation";
+import Client from "./components/LandingPage/Client";
+import Worker from "./components/LandingPage/Worker";
+import Organisation from "./components/LandingPage/Organisation";
+import { MainApp } from "./pages/MainApp";
+import { Toaster } from "react-hot-toast";
+import { Dashboard } from "./features/Dashboard/Dashboard";
+import { Discussions } from "./features/Discussions/Discussions";
+import { Resources } from "./features/Resources/Resources";
+import { Profile } from "./features/Profile/Profile";
+import { Settings } from "./features/Settings/Settings";
+import { Appointments } from "./features/Appointments/Appointments";
 
 const Onboarding = lazy(() => import("./pages/Onboarding"));
-const Login = lazy(() => import("./components/Login"));
-const Register = lazy(() => import("./components/Register"));
-const ForgotPassword = lazy(() => import("./components/ForgotPassword"));
+const Login = lazy(() => import("./components/LandingPage/Login"));
+const Register = lazy(() => import("./components/LandingPage/Register"));
+const ForgotPassword = lazy(() =>
+  import("./components/LandingPage/ForgotPassword")
+);
 
 const queryClient = new QueryClient({
-    defaultOptions : {
-      queries: {
-        staleTime: 60 * 1000,
-      }
-    }
-})
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+    },
+  },
+});
 
 function App() {
+  const [user, setUser] = useState({});
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
@@ -38,6 +49,15 @@ function App() {
                 </Suspense>
               }
             />
+            <Route path="/app" element={<MainApp user={user} />}>
+              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="discussions" element={<Discussions />} />
+              <Route path="appointments" element={<Appointments />} />
+              <Route path="resources" element={<Resources />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
             <Route path="*" element={<PageNotFound />} />
             <Route
               path="/onboarding"
@@ -52,7 +72,7 @@ function App() {
                 path="login"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <Login />
+                    <Login setUser={setUser} />
                   </Suspense>
                 }
               />
@@ -101,6 +121,26 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      <Toaster
+        position="top-right"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "15px",
+            maxWidth: "400px",
+            padding: "16px 20px",
+            backgroundColor: "rgb(255, 255, 255)",
+            color: "",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }
