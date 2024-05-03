@@ -6,5 +6,6 @@ MainApp.propTypes = {
 };
 
 export function MainApp({ user }) {
-  return <AppLayout />;
+  console.log(user);
+  return <AppLayout user={user} />;
 }

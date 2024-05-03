@@ -12,11 +12,12 @@ import Organisation from "./components/LandingPage/Organisation";
 import { MainApp } from "./pages/MainApp";
 import { Toaster } from "react-hot-toast";
 import { Dashboard } from "./features/Dashboard/Dashboard";
-import { Discussions } from "./features/Discussions/Discussions";
+// import { Discussions } from "./features/Discussions/Discussions";
 import { Resources } from "./features/Resources/Resources";
 import { Profile } from "./features/Profile/Profile";
 import { Settings } from "./features/Settings/Settings";
 import { Appointments } from "./features/Appointments/Appointments";
+import Resource from "./features/Resources/Resource";
 
 const Onboarding = lazy(() => import("./pages/Onboarding"));
 const Login = lazy(() => import("./components/LandingPage/Login"));
@@ -52,9 +53,10 @@ function App() {
             <Route path="/app" element={<MainApp user={user} />}>
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
-              <Route path="discussions" element={<Discussions />} />
+              {/* <Route path="discussions" element={<Discussions />} /> */}
               <Route path="appointments" element={<Appointments />} />
               <Route path="resources" element={<Resources />} />
+              <Route path="resources/:id" element={<Resource />} />
               <Route path="profile" element={<Profile />} />
               <Route path="settings" element={<Settings />} />
             </Route>

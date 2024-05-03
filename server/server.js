@@ -3,8 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { Client, Worker, Organisation } = require("./model");
 const { hash, compare } = require("bcrypt");
-
-// const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 // require("dotenv").config();
@@ -18,6 +16,7 @@ app.use(cookieParser());
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+
 
 const MONGO_URI =
   "mongodb+srv://lukasio:rJYZ2NRas1Q00QAE@cluster0.w4nl6uh.mongodb.net/users";
@@ -77,7 +76,6 @@ app.post("/api/signin", async (req, res) => {
       message: "Sign in successful! Welcome back. 🎉",
       userType,
       user, // Optionally, you can send user details in the response
-    
     });
   } catch (error) {
     console.error("Error signing in:", error);

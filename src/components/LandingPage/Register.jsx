@@ -7,14 +7,11 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 
 export default function Register() {
   const [options, setOptions] = useState("");
-  
-  
 
   useEffect(() => {
     if (location.pathname === "/onboarding/register") {
       setOptions("");
     }
-    console.log(location.pathname);
   }, []);
 
   return (

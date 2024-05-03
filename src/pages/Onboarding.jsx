@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 
-import Main from "../components/Main";
-import Navbar from "../components/Navbar";
+import Main from "../components/LandingPage/Main";
+import Navbar from "../components/LandingPage/Navbar";
 
 export default function Onboarding() {
   const location = useLocation();

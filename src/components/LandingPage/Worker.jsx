@@ -1,14 +1,15 @@
 import { InputField } from "./InputField";
 import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useState } from "react";
 import { signUp } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import ReactDatePicker from "react-datepicker";
 
 export default function Worker() {
-  const { register, handleSubmit } = useForm();
+  const { register, control,handleSubmit } = useForm();
 
    const [isChecked, setIsChecked] = useState(false);
 
@@ -71,16 +72,20 @@ export default function Worker() {
           <label htmlFor="dob" className="uppercase font-medium">
             Date of Birth
           </label>
-          <select
-            id="dob"
-            className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
-            {...register("dob")}
-          >
-            <option value="01">January</option>
-            <option value="02">February</option>
-            <option value="03">March</option>
-            {/* Add more options for months */}
-          </select>
+          <Controller
+            name="dob"
+            control={control}
+            // register={register({ required: true })}
+            render={({ field }) => (
+              <ReactDatePicker
+                placeholderText="Date Of Birth"
+                className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+                onChange={(date) => field.onChange(date)}
+                selected={field.value}
+                dateFormat="dd-MM-yyyy"
+              />
+            )}
+          />
         </div>
       </div>
       <div>
@@ -127,7 +132,10 @@ export default function Worker() {
         </label>
       </div>
 
-      <Button text={isLoading ? 'Creating Account...' :"Create Account"} type="form" />
+      <Button
+        text={isLoading ? "Creating Account..." : "Create Account"}
+        type="form"
+      />
 
       <p className="text-center">
         Have an account?

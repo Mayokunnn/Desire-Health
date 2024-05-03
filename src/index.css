@@ -13,11 +13,15 @@ body{
 @layer components {
 
 nav > *{
-    @apply flex gap-2.5 px-2 justify-start items-center text-left py-1.5
+    @apply flex gap-2.5 px-3 justify-start items-center text-left py-3
 }
 
 nav > a.active{
-    @apply bg-[#F0F1F2] rounded w-full
+    @apply bg-[#F0F1F2] rounded w-full text-azure-radiance-700
+}
+
+nav > a.active {
+    @apply fill-azure-radiance-700 stroke-azure-radiance-700 
 }
 
 .title--left, .title--right{
@@ -94,6 +98,8 @@ hr
     
   }
 
+
+  /* LOADER */
 .loader-overlay {
     position: fixed;
     top: 0;
@@ -135,49 +141,30 @@ hr
     }
 }
 
-.scroll-parent {
-    position: relative;
-    width: 100vw;
-    height: 100%;
-    overflow-x: hidden;
+
+/* RINGS */
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
 }
 
-
-
-.scroll-element {
-    width: inherit;
-    height: inherit;
-    position: absolute;
-    left: 0%;
-    top: 0%;
 }
 
-.primary {
-    animation: primary 20s linear infinite;
+::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+  background-color: white;
 }
 
-.secondary {
-    animation: secondary 20s linear infinite;
+::-webkit-scrollbar-thumb {
+  background-color: hsl(220, 24%, 17%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
 }
 
-@keyframes primary {
-    from {
-        left: 0%;
-    }
-
-    to {
-        left: -520%;
-    }
-}
-
-@keyframes secondary {
-    from {
-        left: 520%;
-    }
-
-    to {
-        left: 0%;
-    }
-}
-
+::-webkit-scrollbar-thumb:hover {
+  color: #555;
 }

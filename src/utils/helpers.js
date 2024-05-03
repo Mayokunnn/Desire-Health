@@ -45,3 +45,21 @@ export const whyChooseUs = [
     'Behaviour support',
    ' Better health outcomes',
 ]
+
+export  const formatDate = (date) => {
+  let formattedDate = "";
+
+  if (date.toDateString() === new Date().toDateString()) {
+    formattedDate += "Today";
+  } else {
+    formattedDate += new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+    }).format(date);
+  }
+
+  formattedDate += `, ${date.getDate()} ${date.toLocaleDateString("en-US", {
+    month: "long",
+  })}`;
+
+  return formattedDate;
+};

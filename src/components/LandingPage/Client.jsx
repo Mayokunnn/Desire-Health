@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { InputField } from "./InputField";
-import Button from "./Button";
-import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-// import { useQuery } from "@tanstack/react-query";
-import { signUp } from "../../services/authService";
+import ReactDatePicker from "react-datepicker";
+import { CiCalendar } from "react-icons/ci";
 import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
+
+
+import { InputField } from "./InputField";
+import Button from "./Button";
+import { signUp } from "../../services/authService";
 import Loader from "../Loader";
 
 export default function Client() {
@@ -17,7 +20,7 @@ export default function Client() {
     setIsChecked(e.target.checked);
   };
 
-  const { register, handleSubmit } = useForm();
+  const { register, control, handleSubmit } = useForm();
 
   const { mutate, isLoading } = useMutation({
     mutationFn: (data) => {
@@ -27,7 +30,7 @@ export default function Client() {
 
     onSuccess: () => {
       navigate("/onboarding"); // Handle successful sign-up (redirect to login?)
-      toast.success('Registered you as a Client👍');
+      toast.success("Registered you as a Client👍");
     },
     onError: (error) => {
       console.error("Sign-up error:", error);
@@ -39,7 +42,7 @@ export default function Client() {
     mutate(data);
   });
 
-  isLoading && <Loader/>
+  isLoading && <Loader />;
   return (
     <form
       className="bg-white rounded-md shadow border border-1 p-5 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2"
@@ -72,25 +75,41 @@ export default function Client() {
           <label htmlFor="dob" className="uppercase font-medium">
             Date of Birth
           </label>
-          <select
-            id="dob"
-            className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
-            {...register("dob")}
-          >
-            <option value="01">January</option>
-            <option value="02">February</option>
-            <option value="03">March</option>
-            {/* Add more options for months */}
-          </select>
+          <Controller
+            name="dob"
+            control={control}
+            // register={register({ required: true })}
+            render={({ field }) => (
+              <ReactDatePicker
+                placeholderText="Date Of Birth"
+                className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+                onChange={(date) => field.onChange(date)}
+                selected={field.value}
+                dateFormat="dd-MM-yyyy"
+                showIcon
+                icon={<CiCalendar/>}
+              />
+            )}
+          />
         </div>
       </div>
       <div>
-        <InputField
-          label="Phone Number"
-          id="phone"
-          type="phone"
-          register={register}
-        />
+        {/* <Controller
+          name="phone"
+          control={control}
+          render={({ field }) => (
+            <PhoneInput
+              placeholder="Enter phone number"
+              value={field.value}
+              defaultCountry="NG"
+              withCountryCallingCode={true}
+              international={true}
+              onChange={(phone) => field.onChange(() => formatPhoneNumberIntl(phone))}
+           
+              className="w-full h-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
+            />
+          )}
+        /> */}
       </div>
       <div>
         <InputField label="Email" id="email" type="email" register={register} />
@@ -141,7 +160,7 @@ export default function Client() {
       />
 
       <p className="text-center">
-        Have an account?{' '}
+        Have an account?{" "}
         <Link className="text-azure-radiance-800 font-bold" to={"/onboarding"}>
           Log in
         </Link>

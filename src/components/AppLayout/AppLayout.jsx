@@ -6,8 +6,9 @@ import { Header } from "./Header";
 import { SideBar } from "./SideBar";
 import Logo from "../Logo";
 
-export const AppLayout = () => {
+export const AppLayout = ({user}) => {
   const [isVisible, setIsVisible] = useState(false)
+  console.log(user);
 
   const onToggle = () => {
     setIsVisible(isVisible => !isVisible)
@@ -15,11 +16,11 @@ export const AppLayout = () => {
 
   return (
     <>
-      <div className="font-outfit hidden lg:grid h-screen grid-cols-[13.75rem_1fr] grid-rows-[5.6rem_1fr]">
-        <Header />
+      <div className="font-outfit hidden lg:grid h-screen grid-cols-[13.75rem_1fr] grid-rows-[4.5rem_1fr]">
+        <Header user={user} />
         <SideBar />
-        <main className="p-[4rem_4.8rem_6.4rem] bg-[#F2F4F7] overflow-scroll">
-          <div className="max-w-[120rem] mx-auto">
+        <main className="h-full w-full p-[1rem_2rem] bg-[#F2F4F7] overflow-y-scroll">
+          <div className="h-full w-full max-w-[130rem] mx-auto">
             <Outlet />
           </div>
         </main>
@@ -34,7 +35,7 @@ export const AppLayout = () => {
           </div>
         </div>
         <SideBar onToggle={onToggle} isVisible={isVisible} />
-        <main className="font-outfit lg:p-[4rem_4.8rem_6.4rem] h-full bg-[#F2F4F7] overflow-scroll">
+        <main className="font-outfit h-full p-2 bg-[#F2F4F7] overflow-scroll">
           <div className="max-w-[60rem] lg:max-w-[120rem] mx-auto">
             <Outlet />
           </div>

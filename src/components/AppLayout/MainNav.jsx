@@ -1,4 +1,3 @@
-import { GoCommentDiscussion } from "react-icons/go";
 import {
   IoCalendarOutline,
   IoRocketOutline,
@@ -16,12 +15,8 @@ export const MainNav = () => {
         <LuLayoutDashboard color="#63697A" size={22} />
         <span>Dashboard</span>
       </NavLink>
-      <NavLink to={"discussions"}>
-        <GoCommentDiscussion color="#63697A" size={22} />
-        <span>Discussions</span>
-      </NavLink>
       <NavLink to={"appointments"}>
-        <IoCalendarOutline color="#63697A" size={22} />
+        <IoCalendarOutline color="#63697A" className="icon" size={22} />
         <span>Appointments</span>
       </NavLink>
       <NavLink to={"resources"}>

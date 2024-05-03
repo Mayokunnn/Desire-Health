@@ -3,11 +3,11 @@ import { IoMoonOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 
-export const Header = () => {
+export const Header = ({user}) => {
   const navigate = useNavigate()
   return (
     <>
-      <div className="flex items-center gap-3 justify-end bg-[#F9FAFC] p-2 lg:p-[1.2rem_4.8rem]">
+      <div className="flex items-center gap-3 justify-end bg-[#F9FAFC] p-2 lg:p-[0.5rem_2rem]">
         <IoMoonOutline color="#63697A" size={24} />
         <div className="relative">
           <span className="w-1.5 h-1.5 right-1.5 top-1 absolute z-10 rounded bg-[red]"></span>
@@ -20,7 +20,7 @@ export const Header = () => {
             src="https://picsum.photos/200"
             alt="avatar"
           />
-          <h2 className="text-lg text-[#63697A]">Olojo Feranmi</h2>
+          <h2 className="text-lg text-[#63697A]">{user?.fullname}</h2>
         </div>
       </div>
     </>

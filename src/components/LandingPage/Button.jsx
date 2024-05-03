@@ -6,12 +6,14 @@ Button.propTypes = {
   text: PropTypes.string,
   pageType: PropTypes.string,
   onClick: PropTypes.func,
+  children: PropTypes.node
 };
 
 export default function Button({
   type = "primary",
   text = "register",
   pageType = "",
+  children,
   onClick = () => {},
 }) {
   let buttonContent;
@@ -38,12 +40,26 @@ export default function Button({
   }
   if (type === "secondary") {
     return (
-      <button className="text-white text-sm md:text-base lg:text-lg  bg-[#66748c] px-4 py-2 max-w-3-6 rounded hover:bg-[#535f76] transition capitalize">
+      <button
+        onClick={onClick}
+        className="text-white text-sm md:text-base  bg-[#969799] px-4 py-2 max-w-3-6 rounded hover:bg-[#535f76] transition capitalize"
+      >
         {text}
       </button>
     );
   }
 
+  if (type === "app") {
+    return (
+      <button
+        onClick={onClick}
+        className="text-white text-xs flex items-center gap-1 lg:text-sm  bg-azure-radiance-600 px-2 py-1.5 max-w-3-6 rounded hover:bg-azure-radiance-700 transition capitalize"
+      >
+        {text}
+        <span className="hidden lg:inline-block">{children}</span>
+      </button>
+    );
+  }
   if (type === "transparent") {
     return (
       <MyLink
