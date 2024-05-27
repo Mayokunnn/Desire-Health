@@ -9,7 +9,7 @@ export default function CallToAction() {
         Schedule a personalized consultation with an our experienced
         professionals
       </p>
-      <Button text="Send Message" type="app">
+      <Button text="Schedule" type="app">
           <FaRegPaperPlane size={10} />
         </Button>
     </div>

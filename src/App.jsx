@@ -15,7 +15,6 @@ import { Dashboard } from "./features/Dashboard/Dashboard";
 // import { Discussions } from "./features/Discussions/Discussions";
 import { Resources } from "./features/Resources/Resources";
 import { Profile } from "./features/Profile/Profile";
-import { Settings } from "./features/Settings/Settings";
 import { Appointments } from "./features/Appointments/Appointments";
 import Resource from "./features/Resources/Resource";
 
@@ -58,7 +57,6 @@ function App() {
               <Route path="resources" element={<Resources />} />
               <Route path="resources/:id" element={<Resource />} />
               <Route path="profile" element={<Profile />} />
-              <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
             <Route

@@ -17,12 +17,17 @@ nav > *{
 }
 
 nav > a.active{
-    @apply bg-[#F0F1F2] rounded w-full text-azure-radiance-700
+    @apply bg-[#DFE9F7] rounded w-full text-azure-radiance-700
 }
 
-nav > a.active {
-    @apply fill-azure-radiance-700 stroke-azure-radiance-700 
+nav > a.active > * {
+    @apply  stroke-azure-radiance-700 
 }
+
+nav > a.active .icon-fill {
+    @apply  stroke-azure-radiance-700 fill-azure-radiance-700
+}
+
 
 .title--left, .title--right{
     color: black;
