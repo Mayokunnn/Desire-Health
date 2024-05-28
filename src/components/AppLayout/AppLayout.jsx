@@ -8,7 +8,6 @@ import Logo from "../Logo";
 
 export const AppLayout = ({user}) => {
   const [isVisible, setIsVisible] = useState(false)
-  console.log(user);
 
   const onToggle = () => {
     setIsVisible(isVisible => !isVisible)

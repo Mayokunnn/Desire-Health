@@ -1,10 +1,12 @@
 import axios from "axios";
 
-let baseURL = "/api"; // Default base URL for local development
+let baseURL = "http://localhost:3000/api";// Default base URL for local development
 
 // Check if the code is running in a Vercel environment
-if (process.env.VERCEL_URL) {
-  baseURL = `https://${process.env.VERCEL_URL}/api`; // Use Vercel deployment URL
+const isVercel = process.env.NODE_ENV === "production"; // Assume production means Vercel deployment
+
+if (isVercel) {
+  baseURL = "/api"; // Use relative path for Vercel deployment
 }
 
 const signIn = async (data) => {
