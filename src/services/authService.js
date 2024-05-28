@@ -1,9 +1,15 @@
 import axios from "axios";
 
+let baseURL = "/api"; // Default base URL for local development
+
+// Check if the code is running in a Vercel environment
+if (process.env.VERCEL_URL) {
+  baseURL = `https://${process.env.VERCEL_URL}/api`; // Use Vercel deployment URL
+}
+
 const signIn = async (data) => {
   try {
-
-    const response = await axios.post("http://localhost:3000/api/signin", data);
+    const response = await axios.post(`${baseURL}/signin`, data);
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -12,11 +18,9 @@ const signIn = async (data) => {
 
 const signUp = async (data) => {
   try {
-    const response = await axios.post("http://localhost:3000/api/signup", data);
-    console.log(response);
+    const response = await axios.post(`${baseURL}/signup`, data);
     return response.data;
   } catch (error) {
-    console.log(error);
     throw new Error(error.response.data.message);
   }
 };
