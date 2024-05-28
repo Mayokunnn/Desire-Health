@@ -6,7 +6,7 @@ import { useState } from "react";
 import { signUp } from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import ReactDatePicker from "react-datepicker";
+import { DatePicker } from "antd";
 
 export default function Worker() {
   const { register, control,handleSubmit } = useForm();
@@ -77,13 +77,7 @@ export default function Worker() {
             control={control}
             // register={register({ required: true })}
             render={({ field }) => (
-              <ReactDatePicker
-                placeholderText="Date Of Birth"
-                className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
-                onChange={(date) => field.onChange(date)}
-                selected={field.value}
-                dateFormat="dd-MM-yyyy"
-              />
+              <DatePicker onChange={field.onChange} className="w-full border border-gray-600 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]" placeholder="Date of Birth" />
             )}
           />
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactDatePicker from "react-datepicker";
+import { DatePicker, Space } from 'antd';
 import { CiCalendar } from "react-icons/ci";
 import toast from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
@@ -76,40 +76,18 @@ export default function Client() {
             Date of Birth
           </label>
           <Controller
+          
             name="dob"
             control={control}
             // register={register({ required: true })}
             render={({ field }) => (
-              <ReactDatePicker
-                placeholderText="Date Of Birth"
-                className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
-                onChange={(date) => field.onChange(date)}
-                selected={field.value}
-                dateFormat="dd-MM-yyyy"
-                showIcon
-                icon={<CiCalendar/>}
-              />
+              <DatePicker onChange={field.onChange} className="w-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]" placeholder="Date of Birth" />
             )}
           />
         </div>
       </div>
       <div>
-        {/* <Controller
-          name="phone"
-          control={control}
-          render={({ field }) => (
-            <PhoneInput
-              placeholder="Enter phone number"
-              value={field.value}
-              defaultCountry="NG"
-              withCountryCallingCode={true}
-              international={true}
-              onChange={(phone) => field.onChange(() => formatPhoneNumberIntl(phone))}
-           
-              className="w-full h-full border border-gray-600 p-1.5 rounded focus:border-azure-radiance-800 focus:outline-none focus:border-[1.5px]"
-            />
-          )}
-        /> */}
+   
       </div>
       <div>
         <InputField label="Email" id="email" type="email" register={register} />
