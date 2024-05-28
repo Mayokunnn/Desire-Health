@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const clientSchema = new mongoose.Schema({
   // userId: {
@@ -165,4 +165,4 @@ const Worker = mongoose.model("Worker", workerSchema);
 const Organisation = mongoose.model("Organisation", organisationSchema);
 
 // eslint-disable-next-line no-undef
-module.exports = { Client, Worker, Organisation };
+export { Client, Worker, Organisation };

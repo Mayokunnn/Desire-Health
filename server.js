@@ -1,15 +1,13 @@
-import express from "express";
-import mongoose from "mongoose";
-import { Client, Worker, Organisation } from "./model.js";
-import { hash, compare } from "bcrypt";
-import cookieParser from "cookie-parser";
-import cors from "cors";
-
+/* eslint-disable no-undef */
+const express = require("express");
+const mongoose = require("mongoose");
+const { Client, Worker, Organisation } = require("./model");
+const { hash, compare } = require("bcrypt");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 // require("dotenv").config();
 
 const PORT = 3000;
-const API_KEY =
-  "mongodb+srv://lukasio:rJYZ2NRas1Q00QAE@cluster0.w4nl6uh.mongodb.net/users";
 
 const app = express();
 
@@ -19,7 +17,10 @@ app.use(cookieParser());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-mongoose.connect(API_KEY);
+
+const MONGO_URI =
+  "mongodb+srv://lukasio:rJYZ2NRas1Q00QAE@cluster0.w4nl6uh.mongodb.net/users";
+mongoose.connect(MONGO_URI);
 
 const db = mongoose.connection;
 
