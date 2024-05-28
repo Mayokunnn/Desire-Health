@@ -9,7 +9,7 @@ export default function LoginForm({ setUser }) {
 
   return (
     <form
-      className="bg-white rounded-md shadow border border-1 p-6 text-[10px] flex flex-col w-full lg:max-w-[300px] gap-2"
+      className="bg-white rounded-md shadow border border-1 p-6 text-[10px] flex flex-col w-full lg:w-[350px] gap-2"
       onSubmit={handleSubmit(onSubmit)}
     >
       <h2 className="text-2xl lg:text-xl font-medium">Sign In</h2>

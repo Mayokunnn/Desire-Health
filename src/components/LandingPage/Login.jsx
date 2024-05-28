@@ -17,7 +17,7 @@ export default function Login({setUser}) {
           className="max-w-80"
         />
       </div>
-      <div className="block lg:flex items-start justify-center">
+      <div className="block lg:flex items-start justify-around">
         <LoginForm type="login" setUser={setUser} />
       </div>
     </div>

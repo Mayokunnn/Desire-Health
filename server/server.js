@@ -8,6 +8,8 @@ const cors = require("cors");
 // require("dotenv").config();
 
 const PORT = 3000;
+const API_KEY =
+  "mongodb+srv://lukasio:rJYZ2NRas1Q00QAE@cluster0.w4nl6uh.mongodb.net/users";
 
 const app = express();
 
@@ -17,13 +19,7 @@ app.use(cookieParser());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-<<<<<<< HEAD
-
-const MONGO_URI =
-  "mongodb+srv://lukasio:rJYZ2NRas1Q00QAE@cluster0.w4nl6uh.mongodb.net/users";
-=======
->>>>>>> a64bbbf9868a5f41542875f2506a7b93d9c61a62
-mongoose.connect(MONGO_URI);
+mongoose.connect(API_KEY);
 
 const db = mongoose.connection;
 
