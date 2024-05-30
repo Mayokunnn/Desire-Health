@@ -1,11 +1,11 @@
 import Button from "./Button";
 import { InputField } from "./InputField";
-import { useLogin } from "../../hooks/useLogin";
+import { useAuth } from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm() {
 
-  const {handleSubmit, onSubmit, register, isLoading} = useLogin(setUser)
+  const {handleSubmit, onSubmit, register, isLoading} = useAuth()
 
   return (
     <form

@@ -6,17 +6,18 @@ import { Header } from "./Header";
 import { SideBar } from "./SideBar";
 import Logo from "../Logo";
 
-export const AppLayout = ({user}) => {
-  const [isVisible, setIsVisible] = useState(false)
+export const AppLayout = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  
 
   const onToggle = () => {
-    setIsVisible(isVisible => !isVisible)
-  }
+    setIsVisible((isVisible) => !isVisible);
+  };
 
   return (
     <>
       <div className="font-outfit hidden lg:grid h-screen grid-cols-[13.75rem_1fr] grid-rows-[4.5rem_1fr]">
-        <Header user={user} />
+        <Header />
         <SideBar />
         <main className="h-full w-full p-[1rem_2rem] bg-[#F2F4F7] overflow-y-scroll">
           <div className="h-full w-full max-w-[130rem] mx-auto">

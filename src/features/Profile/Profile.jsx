@@ -1,8 +1,12 @@
 import Button from "../../components/LandingPage/Button";
+import { useUser } from "../../hooks/useUser";
 import { InboxList } from "./InboxList";
-import { Progress } from "./Progress";
+import { Progress } from "antd";
 
 export const Profile = () => {
+  const { user: userData } = useUser();
+  const user = userData?.user;
+  const fullname = user?.fullname?.split(" ");
   return (
     <div className="h-full grid grid-row-[40%_60%] gap-3 ">
       <div className="h-full lg:grid grid-cols-[60%_39%] gap-3">
@@ -14,16 +18,16 @@ export const Profile = () => {
               alt="avatar"
             />
             <h2 className="text-xl text-azure-radiance-800 font-medium">
-              Hey Mayokun
+              Hey {fullname?.[0]},
             </h2>
           </div>
           <div className="space-y-1 text-[#63697A]">
             <h2 className="text-lg text-black font-semibold">
               Mentor Information
             </h2>
-            <p>Name: Kelvin Mayokun Areola</p>
-            <p>Phone Number: Kelvin Mayokun Areola</p>
-            <p>Email: kareola960@gmail.com</p>
+            {user?.fullname && <p>Name: {user?.fullname}</p>}
+            {user?.phone && <p>Phone Number: {user?.phone}</p>}
+            {user?.email && <p>Email: {user?.email}</p>}
           </div>
           <Button type="secondary" text="edit profile" />
         </div>
@@ -33,7 +37,7 @@ export const Profile = () => {
               Profile
             </h2>
             <div className="lg:hidden w-full">
-              <Progress />
+              <Progress size={'small'} />
               <div className="flex text-sm justify-between  text-[#63697A] ">
                 <span>You are almost there keep going!</span>
                 <span>65% complete</span>
@@ -44,11 +48,11 @@ export const Profile = () => {
             </div>
           </div>
           <div className="hidden lg:block space-y-3 px-10 text-[#63697A]">
-            <Progress />
-            <Progress />
+            <Progress percent={30} size='big'  status="active" strokeColor={'green'}/>
+            <Progress percent={50} size="big" status="active" strokeColor={'green'}/>
             <div className="flex flex-col justify-center items-center px-10 space-y-3">
               <p className="text-center">You are almost there, keep going!</p>
-              {/* <Progress type={"ring"} /> */}
+              <Progress type="circle" percent={75} />
             </div>
           </div>
         </div>

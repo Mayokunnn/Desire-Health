@@ -72,7 +72,7 @@ function App() {
                 path="login"
                 element={
                   <Suspense fallback={<Loader />}>
-                    <Login setUser={setUser} />
+                    <Login />
                   </Suspense>
                 }
               />

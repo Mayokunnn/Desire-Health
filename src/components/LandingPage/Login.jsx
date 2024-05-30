@@ -1,7 +1,7 @@
 
 import LoginForm from "./LoginForm";
 
-export default function Login({setUser}) {
+export default function Login() {
 
 
   return (
@@ -18,7 +18,7 @@ export default function Login({setUser}) {
         />
       </div>
       <div className="block lg:flex items-start justify-around">
-        <LoginForm type="login" setUser={setUser} />
+        <LoginForm type="login" />
       </div>
     </div>
   );

@@ -1,10 +1,14 @@
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { IoMoonOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../../hooks/useUser";
 
 
-export const Header = ({user}) => {
+export const Header = () => {
   const navigate = useNavigate()
+  const {user: userData} = useUser()
+  const user = userData?.user
+  console.log(user)
   return (
     <>
       <div className="flex items-center gap-3 justify-end bg-[#F9FAFC] p-2 lg:p-[0.5rem_2rem]">
