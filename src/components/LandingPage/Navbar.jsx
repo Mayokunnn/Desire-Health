@@ -32,15 +32,13 @@ export default function Navbar({ type = "", pageType = "" }) {
           pageType={pageType === "header" ? "header" : ""}
         />
       </div>
-      <img
-        className="lg:hidden w-6"
-        src={`${
-          pageType === "header"
-            ? "/assets/menu-icon.svg"
-            : "/assets/menu-icon-black.svg"
-        }`}
-        alt="Menu Icon"
-      />
+      <div className="lg:hidden">
+        <Button
+          type={buttonType}
+          text={'Sign In'}
+          pageType={pageType === "header" ? "header" : ""}
+        />
+      </div>
     </div>
   );
 }

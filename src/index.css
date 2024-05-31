@@ -9,6 +9,9 @@
 
 body{
     width: 100%;
+    font-size: 16px;
+    transform: scale(1); /* Scale to 100% */
+    transform-origin: 0 0; /* Set the origin of scaling */
 }
 @layer components {
 
